@@ -1,0 +1,38 @@
+[project]
+name = "enefit"
+version = "0.1.0"
+description = "Our solution for the Enefit energy forecast challenge"
+authors = [{ name = "Alessandro Zirilli, Davide Marincione, Luca Zhou", email = "alexzirilli@gmail.com" }]
+requires-python = ">=3.9"
+readme = "README.md"
+license = { text = "MIT" }
+
+dependencies = [
+    "torch",
+    "pandas",
+    "numpy",
+    "scikit-learn",
+    "matplotlib",
+    "seaborn",
+    "jupyter",
+    "ipykernel",
+    "tqdm>=4.67.1",
+]
+
+[tool.setuptools]
+packages = ["enefit"]
+
+[tool.uv.sources]
+enefit = { workspace = true }
+
+[project.scripts]
+evaluate = "enefit.scripts.evaluate_pipeline:main"
+train = "enefit.scripts.train_router:main"
+
+[dependency-groups]
+dev = [
+    "enefit",
+    "pytest",
+    "black",
+    "ruff"
+]
