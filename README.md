@@ -2,6 +2,7 @@
 ![Python](https://img.shields.io/badge/Python-3.9+-blue?style=flat-square&logo=python)
 ![PyTorch](https://img.shields.io/badge/PyTorch-1.13+-red?style=flat-square&logo=pytorch)
 ![uv](https://img.shields.io/badge/uv-virtualenv-lightgrey?style=flat-square&logo=python)
+![Kaggle](https://img.shields.io/badge/Kaggle-Notebook-blue?style=flat-square&logo=kaggle)
 ![License](https://img.shields.io/github/license/alexzilligmm/windy?style=flat-square)
 ![Status](https://img.shields.io/badge/Status-In%20Development-orange?style=flat-square)
 
@@ -22,5 +23,26 @@ The dataset used can be downloaded directly from the [challenge page](https://ww
 - 🌍 Geographical information
 - 🌤️ Weather data  
 - 💰 Relevant energy prices  
-- ☀️ Records of installed photovoltaic (PV) capacity  
+- ☀️ Records of installed photovoltaic (PV) capacity
+
+## ⚙️ Feature Engineering
+
+To enhance the predictive power of our models, we applied several preprocessing and feature engineering techniques:
+
+### 🌤️ Weather Data Grid
+
+The raw weather data was initially available on a grid of geographic points.  
+We used **convex interpolation** to summarize this data on a **per-county** basis across Estonia, aligning it with administrative boundaries.  
+This step was essential for capturing regional variations and aggregating data in a meaningful way.
+<p align="center">
+  <img src="media/Estonia_counties.png" alt="Estonia counties map" width="220">
+  <img src="media/weather_convex_inter.png" alt="Estonia Weather Interpolation Map" width="220">
+</p>
+
+
+### 🔁 Scaling  
+Continuous features were standardized using **Z-score normalization** to ensure stable training behavior across all models.
+
+### 🏷️ Categorical Features  
+Categorical variables were processed using **One-Hot Encoding**, preserving their discrete nature while making them suitable for model input.
 
