@@ -11,6 +11,8 @@ This folder contains three distinct solutions developed for the [Enifit](https:/
 Our approaches span from **LSTM networks** to **Transformer architectures**, culminating in an **ensemble model** that combines the strengths of each method.  
 Our goal is to highlight the differences, strengths, and weaknesses of various architectures when tackling the same forecasting problem.
 
+**Note:** This folder contains a refactored version of the original Kaggle notebook. As a result, replicating the experiments may require additional effort to write missing scripts and adjust file paths. Nonetheless, we believe that open-sourcing the project and sharing our results could still be valuable and helpful to others.
+
 ## 📖 Challenge Overview  
 > *The goal of the competition is to create an energy prediction model of prosumers to reduce energy imbalance costs.*
 >
@@ -54,6 +56,13 @@ This step was essential for capturing regional variations and aggregating data i
 **🏷️ Categorical Features**, categorical variables were processed using **One-Hot Encoding**, preserving their discrete nature while making them suitable for model input.
 
 ## 🚀 Models
+We implement three structurally different models to address this same challenge:
+
+1️⃣ The first architecture is a classical LSTM encoder-decoder that uses attention to produce the context.
+
+2️⃣ The second model is a fairly simple transformer that uses AdaLN-Zero and specialised attentions: contract wise attention, county wise attention and time wise attention.
+
+3️⃣ The third option "mixes" the previous: it emplyos a codebook cor categorical data, a transformer encoder with relative attention layers and a non-autoregressive LSTM decoder.
 
 ### 📚 Resources
 
