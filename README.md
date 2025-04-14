@@ -20,18 +20,27 @@ Our goal is to highlight the differences, strengths, and weaknesses of various a
 ## 💾 Data  
 The dataset used can be downloaded directly from the [challenge page](https://www.kaggle.com/competitions/predict-energy-behavior-of-prosumers/data). It consists of a CSV file that includes:  
 
-- 🌍 Geographical information
-- 🌤️ Weather data  
-- 💰 Relevant energy prices  
-- ☀️ Records of installed photovoltaic (PV) capacity
+🌍 Geographical information
+
+🌤️ Weather data 
+
+💰 Relevant energy prices  
+
+☀️ Records of installed photovoltaic (PV) capacity
+
+Some data show a correlation with the targets. In particular, we present below some of the key results that emerged from our analysis:
+<p align="center">
+  <img src="media/24-hours_correlation.png" alt="Target with itself" width="300">
+  <img src="media/solar_rad_vs_prod.png" alt="Solar radiation vs production" width="300">
+  <img src="media/snowfall_vs_production.png" alt="Solar radiation vs production" width="300">
+</p>
+
 
 ## ⚙️ Feature Engineering
 
 To enhance the predictive power of our models, we applied several preprocessing and feature engineering techniques:
 
-### 🌤️ Weather Data Grid
-
-The raw weather data was initially available on a grid of geographic points.  
+**🌤️ Weather Data Grid**, the raw weather data was initially available on a grid of geographic points.  
 We used **convex interpolation** to summarize this data on a **per-county** basis across Estonia, aligning it with administrative boundaries.  
 This step was essential for capturing regional variations and aggregating data in a meaningful way.
 <p align="center">
@@ -40,9 +49,18 @@ This step was essential for capturing regional variations and aggregating data i
 </p>
 
 
-### 🔁 Scaling  
-Continuous features were standardized using **Z-score normalization** to ensure stable training behavior across all models.
+**🔁 Scaling**, continuous features were standardized using **Z-score normalization** to ensure stable training behavior across all models.
 
-### 🏷️ Categorical Features  
-Categorical variables were processed using **One-Hot Encoding**, preserving their discrete nature while making them suitable for model input.
+**🏷️ Categorical Features**, categorical variables were processed using **One-Hot Encoding**, preserving their discrete nature while making them suitable for model input.
+
+## 🚀 Models
+
+### 📚 Resources
+
+Our first approach follows the [paper](https://www.sciencedirect.com/science/article/pii/S0925231220300606), Shengdong Du, et al.
+
+Our second approach implements [paper](https://arxiv.org/abs/2212.09748)
+
+While our third is based on [paper](https://arxiv.org/abs/1803.02155), P. Shaw, et al.
+
 
