@@ -1,4 +1,4 @@
-# Solar Panel Energy Production Forecasting ☀️
+# Solar panels energy production forecasting ☀️
 ![Python](https://img.shields.io/badge/Python-3.9+-blue?style=flat-square&logo=python)
 ![PyTorch](https://img.shields.io/badge/PyTorch-1.13+-red?style=flat-square&logo=pytorch)
 ![uv](https://img.shields.io/badge/uv-virtualenv-lightgrey?style=flat-square&logo=python)
