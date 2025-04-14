@@ -58,11 +58,11 @@ This step was essential for capturing regional variations and aggregating data i
 ## 🚀 Models
 We implement three structurally different models to address this same challenge:
 
-1️⃣ The first architecture is a classical LSTM encoder-decoder that uses attention to produce the context.
+1️⃣ The first architecture is a classical **LSTM encoder-decoder**, that uses attention to produce the context.
 
-2️⃣ The second model is a fairly simple transformer that uses AdaLN-Zero and specialised attentions: contract wise attention, county wise attention and time wise attention.
+2️⃣ The second model is a fairly simple **transformer that makes use of AdaLN-Zero and specialised attentions**: contract wise attention, county wise attention and time wise attention.
 
-3️⃣ The third option "mixes" the previous: it emplyos a codebook cor categorical data, a transformer encoder with relative attention layers and a non-autoregressive LSTM decoder.
+3️⃣ The third option "mixes" the previous: it emplyos a codebook cor categorical data, a **transformer encoder with relative attention layers and a non-autoregressive LSTM decoder.**
 
 ### 📚 Resources
 
