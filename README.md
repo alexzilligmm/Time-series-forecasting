@@ -6,31 +6,38 @@
 ![License](https://img.shields.io/github/license/alexzilligmm/windy?style=flat-square)
 ![Status](https://img.shields.io/badge/Status-In%20Development-orange?style=flat-square)
 
-This folder contains three distinct solutions developed for the [Enifit](https://www.kaggle.com/competitions/predict-energy-behavior-of-prosumers) Kaggle challenge.
+This folder contains the code for the three distinct solutions developed for the [Enifit](https://www.kaggle.com/competitions/predict-energy-behavior-of-prosumers) Kaggle challenge.
 
 Our approaches span from **LSTM networks** to **Transformer architectures**, culminating in an **ensemble model** that combines the strengths of each method.  
 Our goal is to highlight the differences, strengths, and weaknesses of various architectures when tackling the same forecasting problem.
 
-**Note:** This folder contains a refactored version of the original Kaggle notebook. As a result, replicating the experiments may require additional effort to write missing scripts and adjust file paths. Nonetheless, we believe that open-sourcing the project and sharing our results could still be valuable and helpful to others.
+**Note:** This folder contains a refactored version of the original Kaggle notebook. As a result, replicating the experiments may require additional effort to write missing scripts and adjust file paths.
 
 ## 📖 Challenge Overview  
+From the official page of the challenge:
+
 > *The goal of the competition is to create an energy prediction model of prosumers to reduce energy imbalance costs.*
 >
 > *This competition aims to tackle the issue of energy imbalance, a situation where the energy expected to be used doesn't line up with the actual energy used or produced. Prosumers, who both consume and generate energy, contribute a large part of the energy imbalance. Despite being only a small part of all consumers, their unpredictable energy use causes logistical and financial problems for the energy companies.*
+
+Solving this challenge will help improving energy managment, reducing waste and costs!
 
 
 ## 💾 Data  
 The dataset used can be downloaded directly from the [challenge page](https://www.kaggle.com/competitions/predict-energy-behavior-of-prosumers/data). It consists of a CSV file that includes:  
 
-🌍 Geographical information
+🌍 Geographical information, a grid of coordinates for metheorological stations, zip code of customers...
 
-🌤️ Weather data 
+🌤️ Weather data, snow on the ground, solar radiation, temperature... 
 
 💰 Relevant energy prices  
 
 ☀️ Records of installed photovoltaic (PV) capacity
 
-Some data show a correlation with the targets. In particular, we present below some of the key results that emerged from our analysis:
+🕝 Accurate timestamp
+
+The first thing we did was an extensive data analysis, producing some stats and plots about the data.
+Some data showed a correlation with the targets. In particular, we present below some of the key results that emerged from our analysis:
 <p align="center">
   <img src="media/24-hours_correlation.png" alt="Target with itself" width="300">
   <img src="media/solar_rad_vs_prod.png" alt="Solar radiation vs production" width="300">
@@ -55,6 +62,8 @@ This step was essential for capturing regional variations and aggregating data i
 
 **🏷️ Categorical Features**, categorical variables were processed using **One-Hot Encoding**, preserving their discrete nature while making them suitable for model input.
 
+**🕝 Lag feature**, showed to increase the predictive power of the models.
+
 ## 🚀 Models
 We implement three structurally different models to address this same challenge:
 
@@ -63,6 +72,11 @@ We implement three structurally different models to address this same challenge:
 2️⃣ The second model is a fairly simple **transformer that makes use of AdaLN-Zero and specialised attentions**: contract wise attention, county wise attention and time wise attention.
 
 3️⃣ The third option "mixes" the previous: it employs a codebook for categorical data, a **transformer encoder with relative attention layers and a non-autoregressive LSTM decoder.**
+
+You can find the code for each solution under 'src/enefit/models'.
+
+## 📊 Results
+
 
 ### 📚 Resources
 
