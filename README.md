@@ -6,7 +6,7 @@
 ![License](https://img.shields.io/github/license/alexzilligmm/windy?style=flat-square)
 ![Status](https://img.shields.io/badge/Status-In%20Development-orange?style=flat-square)
 
-This folder contains the code for the three distinct solutions developed for the [Enifit](https://www.kaggle.com/competitions/predict-energy-behavior-of-prosumers) Kaggle challenge.
+This repository contains the code for three distinct solutions developed for the [Enefit](https://www.kaggle.com/competitions/predict-energy-behavior-of-prosumers) Kaggle challenge.
 
 Our approaches span from **LSTM networks** to **Transformer architectures**, culminating in an **ensemble model** that combines the strengths of each method.  
 Our goal is to highlight the differences, strengths, and weaknesses of various architectures when tackling the same forecasting problem.
@@ -77,8 +77,23 @@ You can find the code for each solution under 'src/enefit/models'.
 
 ## 📊 Results
 
+We tested the three different models on the same test-set, evaluating each in terms of Mean Absolute Error (MAE) for both **production** and **consumption**.
 
-### 📚 Resources
+| Model                     | Avg MAE | Prod. MAE | Cons. MAE | Params |
+|--------------------------|---------|-----------|-----------|--------|
+| **LSTM Encoder-Decoder**  | **95.01**  | 128.57    | **61.45**    | ~500K |
+| **Specialized Transformer**   | **64.86**  | **72.24**    | **57.45**    | 3.2M   |
+| **Hybrid Transformer-LSTM**     | 81.35   | 98.67     | 64.03     | 188K   |
+| **Ensemble (LSTM + Transformer)**     | 63.5    | -         | -         | -      |
+
+While the ensemble model slightly outperformed the specialized transformer (by 1.3 MAE points), it offered no substantial gain over the best individual solution.
+
+### ✅ Summary
+
+The specialized transformer (AdaLN-Zero with multi-context attention) consistently delivered the best performance across all metrics, showing how a well-structured transformer can outperform classical recurrent models even on structured tabular time series data.
+
+
+## 📚 Resources
 
 Our first approach follows the [paper](https://www.sciencedirect.com/science/article/pii/S0925231220300606), Shengdong Du, et al.
 
