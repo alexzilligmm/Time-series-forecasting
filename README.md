@@ -65,15 +65,15 @@ This step was essential for capturing regional variations and aggregating data i
 **🕝 Lag feature**, showed to increase the predictive power of the models.
 
 ## 🚀 Models
-We implement three structurally different models to address this same challenge:
+We implemented three structurally distinct models to solve the challenge:
 
-1️⃣ The first architecture is a classical **LSTM encoder-decoder**, that uses attention to produce the context.
+1️⃣ A classical **LSTM encoder-decoder** using temporal attention to compute contextual information.
 
-2️⃣ The second model is a fairly simple **transformer that makes use of AdaLN-Zero and specialised attentions**: contract wise attention, county wise attention and time wise attention.
+2️⃣ A **Transformer** utilizing **AdaLN-Zero** and specialized attention heads: time-wise, contract-wise, and county-wise.
 
-3️⃣ The third option "mixes" the previous: it employs a codebook for categorical data, a **transformer encoder with relative attention layers and a non-autoregressive LSTM decoder.**
+3️⃣ A hybrid model combining the above: a **transformer encoder with relative attention** layers and a **non-autoregressive LSTM decoder**, using categorical embeddings.
 
-You can find the code for each solution under 'src/enefit/models'.
+Model implementations can be found under `src/enefit/models`.
 
 ## 📊 Results
 
